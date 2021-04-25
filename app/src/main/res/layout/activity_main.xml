@@ -54,9 +54,20 @@
         android:id="@+id/blogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="56dp"
         android:text="login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword1" />
+
+    <Button
+        android:id="@+id/bsignup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="40dp"
+        android:text="Signup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blogin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button login;
+    Button signup;
     public static ArrayList<Map<String, Object>> userList = null;
     Map<String, Object> map = null;
 
@@ -34,14 +36,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(); //start from root
-        username = findViewById(R.id.editTextUsername);
-        password = findViewById(R.id.editTextPassword);
+        username = findViewById(R.id.editTextUsername1);
+        password = findViewById(R.id.editTextPassword1);
         login = findViewById(R.id.blogin);
+        signup = findViewById(R.id.bsignup1);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.addValueEventListener(new ValueEventListener() {
+                myRef.child("users").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         userList = new ArrayList<Map<String, Object>>();
@@ -52,13 +55,15 @@ public class MainActivity extends AppCompatActivity {
                             //grab individualized map values
                             String a = (String) map.get("username");
                             String b = (String) map.get("password");
+                            Log.d("username and password", "Username is " + a + " and password is " + b);
                             if (a.compareTo(username.getText().toString())== 0 && b.compareTo(password.getText().toString()) == 0){
                                 Toast.makeText(MainActivity.this, "login was successfully", Toast.LENGTH_SHORT).show();
-                                Intent login = new Intent(MainActivity.this,Dashboard.class);
+                                Intent login = new Intent(MainActivity.this, DashboardActivity.class);
                                 startActivity(login);
+                                break;
                             }
                         }
-                        Toast.makeText(MainActivity.this, "login was not successfully. Try again!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "login was not successfully. Try again!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -68,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signupPage = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivity(signupPage);
+            }
+        });
     }
 }

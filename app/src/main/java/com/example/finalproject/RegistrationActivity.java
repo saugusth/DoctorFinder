@@ -29,7 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
         Eusername = findViewById(R.id.editTextUsername);
         Epassword = findViewById(R.id.editTextPassword);
         signup = findViewById(R.id.bsignup);
@@ -59,7 +59,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(RegistrationActivity.this, "user has been added successfully", Toast.LENGTH_SHORT).show();
                         }
                     });
-                    Intent login = new Intent(RegistrationActivity.this, MainActivity.class);
+                    Intent login = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(login);
                 }
 
