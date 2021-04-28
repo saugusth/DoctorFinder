@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">finalproject</string>
+    <string-array name="insurance_array">
+        <item>Exclusive Provider Organization (EPO)</item>
+        <item>Health Maintenance Organization (HMO)</item>
+        <item>Point of Service (POS)</item>
+        <item>Preferred Provider Organization (PPO)</item>
+    </string-array>
 </resources>

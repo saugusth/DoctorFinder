@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Finalproject">
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".AppoinmentActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".DoctorPreviewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

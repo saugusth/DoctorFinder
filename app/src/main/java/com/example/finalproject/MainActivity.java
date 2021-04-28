@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "login was successfully", Toast.LENGTH_SHORT).show();
                                 Intent login = new Intent(MainActivity.this, DashboardActivity.class);
                                 startActivity(login);
-                                break;
+                                return;
                             }
                         }
                         Toast.makeText(getApplicationContext(), "login was not successfully. Try again!", Toast.LENGTH_SHORT).show();
