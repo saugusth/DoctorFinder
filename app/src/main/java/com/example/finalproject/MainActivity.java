@@ -60,27 +60,27 @@ public class MainActivity extends AppCompatActivity {
 
                             Log.d("username and password", "Username is " + a + " and password is " + b);
                             if (a.compareTo(username.getText().toString())== 0 && b.compareTo(password.getText().toString()) == 0){
-                                String key = child.getKey();
-                                if(c.compareTo("patient") == 0){
+                                if (c.compareTo("patient") == 0){
+
                                     Toast.makeText(MainActivity.this, "login was successfully", Toast.LENGTH_SHORT).show();
-                                    Intent plogin = new Intent(MainActivity.this, DashboardActivity.class);
+                                    Intent plogin = new Intent(getApplicationContext(), DashboardActivity.class);
                                     startActivity(plogin);
                                     return;
                                 }
-                                else{
+                                else if (c.compareTo("doctor") == 0){
+                                    String key = child.getKey();
                                     if (d.compareTo("false") == 0){
-                                        Toast.makeText(MainActivity.this, "login was successfully", Toast.LENGTH_SHORT).show();
-                                        HashMap<String,Object> counterUpdate = new HashMap<>();
-                                        counterUpdate.put("counter","true");
-                                        myRef.child("users").child(key).updateChildren(counterUpdate);
-                                        Intent dlogin1 = new Intent(MainActivity.this,ProfileCreatorActivity.class);
-                                        startActivity(dlogin1);
+                                        HashMap<String, Object> counter = new HashMap<>();
+                                        counter.put("counter","true");
+                                        myRef.child(key).updateChildren(counter);
+                                        Toast.makeText(getApplicationContext(), "Login successful. Going to the doctor profile creator", Toast.LENGTH_SHORT);
+                                        Intent doctorProfileCreator = new Intent(getApplicationContext(), ProfileCreatorActivity.class);
+                                        startActivity(doctorProfileCreator);
                                         return;
                                     }
-                                    else{
-                                        Toast.makeText(MainActivity.this, "login was successfully", Toast.LENGTH_SHORT).show();
-                                        Intent dlogin2 = new Intent(MainActivity.this, DoctorDashboardActivity.class);
-                                        startActivity(dlogin2);
+                                    else if (d.compareTo("true") == 0){
+                                        Intent doctorDashboard = new Intent(getApplicationContext(), DoctorDashboardActivity.class);
+                                        startActivity(doctorDashboard);
                                         return;
                                     }
                                 }
