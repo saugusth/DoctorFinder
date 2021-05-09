@@ -6,22 +6,12 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/bappoinment"
-        android:layout_width="258dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="188dp"
-        android:text="Appoiment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/bsearch"
         android:layout_width="255dp"
         android:layout_height="123dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="262dp"
         android:text="Search for Doctor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bappoinment" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

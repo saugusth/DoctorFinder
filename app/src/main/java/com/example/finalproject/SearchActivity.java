@@ -41,12 +41,13 @@ public class SearchActivity extends AppCompatActivity{
 
             }
         });
-        symptom = Esymptom.getText().toString();
+
 
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent DoctorPreview = new Intent(getApplicationContext(), DoctorPreviewActivity.class);
+                symptom = Esymptom.getText().toString();
+                Intent DoctorPreview = new Intent(getApplicationContext(), DoctorActivity.class);
                 DoctorPreview.putExtra("Insurance",insuranceType);
                 DoctorPreview.putExtra("Symptom", symptom);
                 startActivity(DoctorPreview);
